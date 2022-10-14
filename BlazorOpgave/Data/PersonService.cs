@@ -8,6 +8,8 @@ namespace BlazorOpgave.Data
 
 		public static void createPerson(string firstName, string lastName)
         {
+			if (firstName == null || lastName == null) return;
+
 			string queryString = "INSERT INTO dbo.OpgaveTable (FirstName, LastName) VALUES (@FirstName, @LastName)";
 
 			using (SqlConnection connection = new SqlConnection(connectionString))
